@@ -18,11 +18,13 @@ nameElement.innerHTML = "<strong>Deborah Judge</strong>";
 imageElement.setAttribute("src", profilepicture);
 
 /* Step 5 - Array */
-let favoriteFoods = ['Pizza', 'Sushi', 'Chocolate', 'Chicken pie', 'Ice Cream', 'Friedrice', 'Pasta & Chicken', 'Toast bread with stock egg', ];
-let newFavoriteFood = 'Burger';
-favoriteFoods.push(newFavoriteFood);
+const favouriteFoods = ['Friedrice', 'Chicken pie', 'pasta', 'Toasted bread', 'plantain',]
+foodElement.innerHTML=favouriteFoods
+const favFood = ['Pizza']
+favouriteFoods.push(favFood);
+foodElement.innerHTML += `<br>${favouriteFoods}`;
+favouriteFoods.shift(favFood);
+foodElement.innerHTML += `<br>${favouriteFoods}`;
+favFood.pop();
+foodElement.innerHTML += `<br>${favouriteFoods}`;
 
-foodElement.innerHTML = "<strong>Favorite Foods:</strong>";
-favoriteFoods.forEach((food) => {
-    foodElement.innerHTML += `<br>${food}`;
-});
