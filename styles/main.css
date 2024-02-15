@@ -312,4 +312,39 @@ footer {
         max-width: 950px;
     }
 
+}body {
+	background-color: #f4f4f4;
+	font-family: 'Helvetica Neue', Arial, sans-serif;
+	text-align: center;
+}
+
+#quote-box {
+	border: 1px solid #ccc;
+	background-color: #fff;
+	padding: 20px;
+	margin: 20px auto;
+	max-width: 500px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#text {
+	font-size: 2em;
+}
+
+#author {
+	font-size: 0.8em;
+	color: #666;
+}
+
+button {
+	background-color: #333;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	cursor: pointer;
+	margin-top: 20px;
+}
+
+button:hover {
+	background-color: #444;
 }
