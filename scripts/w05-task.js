@@ -1,52 +1,51 @@
-/* W05: Programming Tasks */
-
 /* Declare and initialize global variables */
-const templesElement = document.querySelector("#temples");
+const templesElement = document.querySelector("#temples"); 
 const templeList = [];
 
-
+/* async displayTemples Function */
 const displayTemples = (temples) => {
-    
+    // Reset the displayed list of temples
     reset();
-    
+    // Process each temple in the array
     temples.forEach((temple) => {
-        
+        // Create HTML elements
         const article = document.createElement("article");
         const h3 = document.createElement("h3");
         const img = document.createElement("img");
 
-        
+        // Add temple data to elements
         h3.textContent = temple.templeName;
         img.src = temple.imageUrl;
         img.alt = temple.location;
 
-        
+        // Append elements to the article
         article.appendChild(h3);
         article.appendChild(img);
 
-        
+        // Append article to templesElement
         templesElement.appendChild(article);
     });
 };
 
-
+/* async getTemples Function using fetch()*/
 const getTemples = async () => {
     try {
-        const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/"); 
+        const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json"); // Replace with the actual URL
         const templeData = await response.json();
         templeList.push(...templeData);
         displayTemples(templeList);
     } catch (error) {
-        
+        console.error("Error fetching temple data:", error);
     }
 };
 
-
+/* reset Function */
 const reset = () => {
     templesElement.innerHTML = ""; 
 };
+    
 
-
+/* filterTemples Function */
 const filterTemples = (temples) => {
     reset();
 
@@ -69,7 +68,8 @@ const filterTemples = (temples) => {
     }
 };
 
-
+// Event Listener
 document.querySelector("#filtered").addEventListener("change", () => filterTemples(templeList));
 
+// Call getTemples once at the end of your JavaScript file to fetch the temple data
 getTemples();
